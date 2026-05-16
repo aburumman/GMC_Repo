@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>GlobeTrek | Discover Your Next Adventure</title>
+  <!-- Bootstrap 5 CSS + Icons + Font Awesome 6 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Custom CSS for travel agency theme -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fefefe;
+    }
+
+    /* Custom scroll & navbar style */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s;
+      padding: 0.8rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+      color: #1e6f5c !important;
+    }
+
+    .navbar-brand i {
+      color: #f4a261;
+      margin-right: 8px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: #2c3e50 !important;
+      margin: 0 6px;
+      transition: 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #1e6f5c !important;
+      transform: translateY(-2px);
+    }
+
+    /* Hero section with background overlay */
+    .hero {
+      position: relative;
+      background-image: url('https://picsum.photos/id/104/1600/800');  /* dramatic mountain landscape */
+      background-size: cover;
+      background-position: center 40%;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 30, 40, 0.7), rgba(0, 0, 0, 0.55));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      max-width: 800px;
+      padding: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+    }
+
+    .hero .btn {
+      padding: 0.9rem 2.2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 60px;
+      background-color: #f4a261;
+      border: none;
+      transition: all 0.3s ease;
+      color: #1e2a2a;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .hero .btn:hover {
+      background-color: #e76f51;
+      transform: scale(1.02);
+      letter-spacing: 0.3px;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: #1e6f5c;
+      margin-bottom: 0.75rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-underline {
+      width: 80px;
+      height: 4px;
+      background: #f4a261;
+      margin: 0.5rem auto 2rem auto;
+      border-radius: 5px;
+    }
+
+    /* Destination cards */
+    .dest-card {
+      border: none;
+      border-radius: 32px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      height: 100%;
+    }
+
+    .dest-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-img-top {
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .dest-card:hover .card-img-top {
+      transform: scale(1.02);
+    }
+
+    .card-title {
+      font-weight: 800;
+      color: #1e6f5c;
+    }
+
+    .btn-outline-accent {
+      border: 2px solid #f4a261;
+      color: #f4a261;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-accent:hover {
+      background-color: #f4a261;
+      color: white;
+      border-color: #f4a261;
+    }
+
+    /* Accordion custom */
+    .accordion-item {
+      border: none;
+      margin-bottom: 1rem;
+      border-radius: 24px !important;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .accordion-button {
+      background-color: #f9f6ef;
+      font-weight: 700;
+      color: #1e6f5c;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #e9f5f2;
+      color: #1b5a4b;
+      box-shadow: none;
+    }
+
+    .accordion-body {
+      background: white;
+      padding: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .view-link {
+      color: #f4a261;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .view-link:hover {
+      color: #e76f51;
+      text-decoration: underline;
+    }
+
+    /* Contact form */
+    .contact-wrapper {
+      background: linear-gradient(120deg, #fef9f0, #ffffff);
+      border-radius: 44px;
+      padding: 2rem;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(244, 162, 97, 0.2);
+    }
+
+    .btn-submit {
+      background-color: #1e6f5c;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-weight: 700;
+      border-radius: 60px;
+      width: 100%;
+      transition: 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #0f5243;
+      transform: scale(0.98);
+    }
+
+    /* Footer */
+    .footer {
+      background: #0a2b26;
+      color: #e0e7e6;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      margin: 0 8px;
+      color: #f4f1e1;
+      font-size: 1.3rem;
+      transition: all 0.2s;
+    }
+
+    .social-icons a:hover {
+      background: #f4a261;
+      color: #0a2b26;
+      transform: translateY(-4px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======================= NAVBAR (agency name left, links right) ======================= -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <i class="fas fa-globe-americas"></i> GlobeTrek
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#travelNavbar" aria-controls="travelNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="travelNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tours">Tours</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================= HERO SECTION (heading + subheading + CTA button) ======================= -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Journey Beyond Horizons</h1>
+    <p class="lead">Handcrafted adventures, authentic cultural experiences & unforgettable memories</p>
+    <a href="#tours" class="btn btn-warning btn-lg shadow"><i class="fas fa-compass me-2"></i> Explore Tours</a>
+  </div>
+</section>
+
+<!-- ======================= DESTINATIONS SECTION (grid, at least 3 cards with image, title, description, Learn More) ======================= -->
+<section id="destinations" class="py-5">
+  <div class="container py-4">
+    <div class="text-center">
+      <h2 class="section-title">Dream Destinations</h2>
+      <div class="section-underline"></div>
+      <p class="text-muted mb-5">Inspiring escapes curated by local experts</p>
+    </div>
+    <div class="row g-5">
+      <!-- Destination 1 - Santorini -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card dest-card h-100">
+          <img src="https://picsum.photos/id/20/600/400" class="card-img-top" alt="Santorini caldera with white buildings">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-umbrella-beach me-2"></i>Santorini, Greece</h5>
+            <p class="card-text text-secondary">Explore white-washed villages, breathtaking sunsets over the Aegean Sea, volcanic beaches, and authentic Mediterranean cuisine.</p>
+            <a href="#" class="btn btn-outline-accent mt-2 rounded-pill px-4">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Destination 2 - Bali -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card dest-card h-100">
+          <img src="https://picsum.photos/id/96/600/400" class="card-img-top" alt="Bali lush rice terraces">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-leaf me-2"></i>Bali, Indonesia</h5>
+            <p class="card-text text-secondary">Jungle temples, serene rice fields, vibrant arts scene, and world-class surfing. Discover the island of gods.</p>
+            <a href="#" class="btn btn-outline-accent mt-2 rounded-pill px-4">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Destination 3 - Swiss Alps -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card dest-card h-100">
+          <img src="https://picsum.photos/id/29/600/400" class="card-img-top" alt="Swiss Alps mountain peaks">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-mountain me-2"></i>Swiss Alps, Switzerland</h5>
+            <p class="card-text text-secondary">Alpine adventures, scenic train rides, charming villages, and year-round outdoor thrills from hiking to skiing.</p>
+            <a href="#" class="btn btn-outline-accent mt-2 rounded-pill px-4">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TOURS SECTION (Bootstrap Accordion) ======================= -->
+<section id="tours" class="py-5 bg-light">
+  <div class="container py-4">
+    <div class="text-center">
+      <h2 class="section-title">Signature Tour Packages</h2>
+      <div class="section-underline"></div>
+      <p class="text-muted mb-5">Tailored experiences for every traveler</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Bootstrap Accordion component -->
+        <div class="accordion" id="tourAccordion">
+          <!-- Accordion Item 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="fas fa-ship me-3"></i> Mediterranean Bliss — 7 Days
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#tourAccordion">
+              <div class="accordion-body">
+                <p class="mb-3">Discover the charm of Greek islands & Turkish coasts. Includes luxury catamaran cruise, guided tours of ancient ruins, authentic cooking classes, and boutique stays. Daily breakfast & select dinners.</p>
+                <a href="#" class="view-link">View Details <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion Item 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <i class="fas fa-hiking me-3"></i> Andean Discovery — 10 Days
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tourAccordion">
+              <div class="accordion-body">
+                <p class="mb-3">Machu Picchu, Sacred Valley & Lake Titicaca. Cultural immersion, expert local guides, comfortable lodges and scenic train journeys. Includes entrance fees & transfers.</p>
+                <a href="#" class="view-link">View Details <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion Item 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <i class="fas fa-tree me-3"></i> Northern Lights Expedition — 6 Days
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#tourAccordion">
+              <div class="accordion-body">
+                <p class="mb-3">Iceland's magical winter: hunt for auroras, explore ice caves, soak in geothermal lagoons, and witness volcanic landscapes. Small group tour with aurora photography guide.</p>
+                <a href="#" class="view-link">View Details <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <p class="text-muted small"><i class="fas fa-tag"></i> Customized private tours also available — ask our travel experts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACT SECTION (form: name, email, destination of interest, message) ======================= -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-title">Let’s Plan Your Escape</h2>
+      <div class="section-underline"></div>
+      <p class="text-muted mb-4">Our travel specialists will craft your dream journey</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="contact-wrapper">
+          <form id="travelContactForm" action="#" method="post">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label for="name" class="form-label fw-semibold">Full name *</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-transparent border-end-0"><i class="fas fa-user text-muted"></i></span>
+                  <input type="text" class="form-control border-start-0 ps-0" id="name" placeholder="Emily Carter" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label fw-semibold">Email address *</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-transparent border-end-0"><i class="fas fa-envelope text-muted"></i></span>
+                  <input type="email" class="form-control border-start-0 ps-0" id="email" placeholder="hello@wander.com" required>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="destinationInterest" class="form-label fw-semibold">Destination of interest</label>
+                <select class="form-select" id="destinationInterest">
+                  <option selected disabled>Select your dream destination</option>
+                  <option>Santorini, Greece</option>
+                  <option>Bali, Indonesia</option>
+                  <option>Swiss Alps, Switzerland</option>
+                  <option>Iceland Northern Lights</option>
+                  <option>Machu Picchu, Peru</option>
+                  <option>Custom (tell us more)</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label fw-semibold">Message / Special requests</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Tell us about your travel style, group size, budget or any questions..."></textarea>
+              </div>
+              <div class="col-12 text-center mt-3">
+                <button type="submit" class="btn btn-submit text-white"><i class="fas fa-paper-plane me-2"></i> Send inquiry</button>
+              </div>
+            </div>
+          </form>
+          <div class="mt-4 text-center small text-secondary">
+            <i class="fas fa-phone-alt me-1"></i> +1 (800) 654-3210 &nbsp;|&nbsp;
+            <i class="fas fa-envelope me-1"></i> hello@globetrek.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER (copyright + social media icons) ======================= -->
+<footer class="footer pt-5 pb-4">
+  <div class="container">
+    <div class="row gy-4 align-items-center text-center text-md-start">
+      <div class="col-md-5">
+        <h5 class="fw-bold text-white"><i class="fas fa-globe-americas me-2"></i>GlobeTrek</h5>
+        <p class="text-white-50 small mb-0">Inspiring journeys since 2012. Sustainable & authentic travel experiences worldwide.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook" class="d-inline-flex align-items-center justify-content-center"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-md-3 text-md-end">
+        <p class="mb-0 text-white-50 small">© 2025 GlobeTrek Travel Co.<br>All rights reserved.</p>
+      </div>
+    </div>
+    <hr class="mt-4 opacity-25">
+    <div class="text-center small text-white-50">
+      <i class="fas fa-map-pin"></i> Adventure awaits — contact our experts to start your journey.
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS Bundle (Popper included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Simple form alert & smooth scroll enhancement -->
+<script>
+  (function() {
+    // Smooth scroll for navbar and hero CTA
+    const links = document.querySelectorAll('.navbar-nav .nav-link, .hero .btn');
+    for (let link of links) {
+      link.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        if (hash && hash.startsWith('#') && hash !== '#') {
+          const target = document.querySelector(hash);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    }
+
+    // Contact form handling (demo: alert on submit, does not POST)
+    const contactForm = document.getElementById('travelContactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nameField = document.getElementById('name');
+        const emailField = document.getElementById('email');
+        if (nameField.value.trim() === '' || emailField.value.trim() === '') {
+          alert('❌ Please provide both your name and email address before sending.');
+          return;
+        }
+        const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+        if (!emailRegex.test(emailField.value.trim())) {
+          alert('⚠️ Please enter a valid email address (e.g., name@example.com).');
+          return;
+        }
+        alert(`✨ Thanks ${nameField.value.trim()}! Your travel request has been received. One of our experts will reach out within 24 hours.`);
+        contactForm.reset();
+      });
+    }
+  })();
+</script>
+</body>
+</html>
