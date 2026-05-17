@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mindful Pages | Modern Blog</title>
+  <!-- Tailwind CSS v3 + Google Fonts + Font Awesome Icons (for social & visual) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Custom config: extend font family + smooth scroll -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'fade': 'fadeIn 0.5s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(8px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* simple smooth scroll and focus ring */
+    html { scroll-behavior: smooth; }
+    body { transition: background 0.2s; }
+    input:focus, button:focus, a:focus { outline: none; ring: 2px solid #8b5cf6; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-stone-50 to-amber-50/30 font-sans antialiased">
+
+  <!-- ======================= HEADER: Blog Name/Logo + Navigation Menu ======================= -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
+    <div class="container mx-auto px-6 md:px-8 py-4 flex flex-wrap justify-between items-center gap-4">
+      <!-- Logo / Blog name -->
+      <div class="text-2xl md:text-3xl font-extrabold tracking-tight">
+        <span class="bg-gradient-to-r from-amber-700 to-indigo-600 bg-clip-text text-transparent">Mindful<span class="text-stone-800">Pages</span></span>
+      </div>
+      <!-- Navigation menu (Home, Projects/Articles, Contact – at least 3 items) -->
+      <nav class="flex flex-wrap gap-5 md:gap-8 text-base font-medium">
+        <a href="#" class="text-stone-700 hover:text-indigo-600 transition duration-200">Home</a>
+        <a href="#featured" class="text-stone-700 hover:text-indigo-600 transition duration-200">Stories</a>
+        <a href="#categories" class="text-stone-700 hover:text-indigo-600 transition duration-200">Topics</a>
+        <a href="#newsletter" class="text-stone-700 hover:text-indigo-600 transition duration-200">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- subtle hero intro (optional but cohesive, no extra requirement) -->
+    <div class="bg-gradient-to-r from-indigo-50 via-white to-amber-50 py-12 border-b border-stone-100">
+      <div class="container mx-auto px-6 text-center max-w-3xl">
+        <p class="text-indigo-600 font-semibold text-sm uppercase tracking-wide">Slow reading, deep thinking</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-stone-800 mt-2 leading-tight">Stories that inspire <br> a mindful life</h1>
+        <p class="text-stone-500 mt-4">Explore ideas, personal growth, creativity, and the art of living well.</p>
+      </div>
+    </div>
+
+    <!-- ======================= FEATURED POSTS SECTION: 3 cards (image, title, excerpt) ======================= -->
+    <section id="featured" class="py-16 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <div class="text-center mb-12">
+          <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">Featured reads</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mt-2">From the notebook</h2>
+          <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+        <!-- responsive grid: 1 col mobile, 2 on tablet, 3 on desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Featured Post 1 -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+            <img class="h-56 w-full object-cover group-hover:scale-105 transition duration-500" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop" alt="Woman writing in journal" loading="lazy">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-stone-800">The Art of Slow Living</h3>
+              <p class="text-stone-500 mt-2">Rediscover the joy of unhurried mornings, intentional habits, and finding stillness in chaos.</p>
+              <div class="mt-4 text-indigo-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Read more <span>→</span></div>
+            </div>
+          </article>
+          <!-- Featured Post 2 -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+            <img class="h-56 w-full object-cover group-hover:scale-105 transition duration-500" src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=600&h=400&fit=crop" alt="Creative workspace with laptop and coffee" loading="lazy">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-stone-800">Creative Rituals: Cultivating Flow</h3>
+              <p class="text-stone-500 mt-2">Small daily routines that unlock your creative potential — from morning pages to digital detox.</p>
+              <div class="mt-4 text-indigo-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Read more <span>→</span></div>
+            </div>
+          </article>
+          <!-- Featured Post 3 -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+            <img class="h-56 w-full object-cover group-hover:scale-105 transition duration-500" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop" alt="Forest path morning light" loading="lazy">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-stone-800">Finding Stillness in Nature</h3>
+              <p class="text-stone-500 mt-2">How forest bathing and mindful walks can transform your mental well-being and spark clarity.</p>
+              <div class="mt-4 text-indigo-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Read more <span>→</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CATEGORY SECTION: badges / tags ======================= -->
+    <section id="categories" class="py-12 bg-white/60 rounded-t-3xl px-6 md:px-8">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-stone-800">Explore by topic</h2>
+          <p class="text-stone-500 mt-1">Dive into stories that speak to your curiosity</p>
+        </div>
+        <!-- Flex wrap badges / tags - using Tailwind utilities -->
+        <div class="flex flex-wrap justify-center gap-3">
+          <span class="bg-amber-100 text-amber-800 px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-amber-200 transition cursor-default">🌿 Mindfulness</span>
+          <span class="bg-indigo-100 text-indigo-800 px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-indigo-200 transition cursor-default">✨ Creativity</span>
+          <span class="bg-emerald-100 text-emerald-800 px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-emerald-200 transition cursor-default">📖 Personal Growth</span>
+          <span class="bg-rose-100 text-rose-800 px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-rose-200 transition cursor-default">🧘‍♀️ Wellness</span>
+          <span class="bg-sky-100 text-sky-800 px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-sky-200 transition cursor-default">🌍 Slow Travel</span>
+          <span class="bg-purple-100 text-purple-800 px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-purple-200 transition cursor-default">📝 Journaling</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= RECENT POSTS SECTION: list with titles & publication dates ======================= -->
+    <section class="py-16 px-6 md:px-8 bg-stone-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="flex justify-between items-center flex-wrap gap-2 mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-stone-800">Recent ramblings</h2>
+          <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">View all →</a>
+        </div>
+        <div class="bg-white rounded-2xl shadow-sm divide-y divide-stone-100">
+          <!-- recent post 1 -->
+          <div class="flex justify-between items-center p-5 hover:bg-stone-50 transition rounded-t-2xl">
+            <div>
+              <h3 class="text-lg font-semibold text-stone-800">10 Micro-Habits That Changed My Year</h3>
+              <p class="text-sm text-stone-400 mt-1">A reflection on consistency and tiny shifts</p>
+            </div>
+            <span class="text-sm text-stone-400 whitespace-nowrap ml-4"><i class="far fa-calendar-alt mr-1"></i>May 12, 2025</span>
+          </div>
+          <!-- recent post 2 -->
+          <div class="flex justify-between items-center p-5 hover:bg-stone-50 transition">
+            <div>
+              <h3 class="text-lg font-semibold text-stone-800">Why We Need Digital Sabbaths</h3>
+              <p class="text-sm text-stone-400 mt-1">Reclaiming attention in a noisy world</p>
+            </div>
+            <span class="text-sm text-stone-400 whitespace-nowrap ml-4"><i class="far fa-calendar-alt mr-1"></i>April 28, 2025</span>
+          </div>
+          <!-- recent post 3 -->
+          <div class="flex justify-between items-center p-5 hover:bg-stone-50 transition">
+            <div>
+              <h3 class="text-lg font-semibold text-stone-800">The Power of a Simple Morning Ritual</h3>
+              <p class="text-sm text-stone-400 mt-1">From chaotic rush to intentional start</p>
+            </div>
+            <span class="text-sm text-stone-400 whitespace-nowrap ml-4"><i class="far fa-calendar-alt mr-1"></i>April 15, 2025</span>
+          </div>
+          <!-- recent post 4 -->
+          <div class="flex justify-between items-center p-5 hover:bg-stone-50 transition rounded-b-2xl">
+            <div>
+              <h3 class="text-lg font-semibold text-stone-800">Rediscovering Reading in a Scroll Era</h3>
+              <p class="text-sm text-stone-400 mt-1">How to fall back in love with books</p>
+            </div>
+            <span class="text-sm text-stone-400 whitespace-nowrap ml-4"><i class="far fa-calendar-alt mr-1"></i>March 30, 2025</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= NEWSLETTER SUBSCRIPTION FORM ======================= -->
+    <section id="newsletter" class="py-20 px-6 md:px-8">
+      <div class="container mx-auto max-w-3xl">
+        <div class="bg-gradient-to-br from-indigo-50 to-amber-50/70 rounded-3xl shadow-lg p-8 md:p-12 text-center">
+          <i class="fas fa-envelope-open-text text-4xl text-indigo-500 mb-4"></i>
+          <h2 class="text-3xl font-bold text-stone-800">Join the mindful circle</h2>
+          <p class="text-stone-600 mt-2 max-w-md mx-auto">Weekly letters with new essays, reading lists & quiet inspiration. No spam, ever.</p>
+          <!-- Newsletter form: email field + Subscribe button (simple, clean) -->
+          <form id="newsletterForm" class="mt-8 flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+            <input type="email" id="newsEmail" required placeholder="Your email address" class="flex-1 px-5 py-3 rounded-full border border-stone-300 focus:ring-2 focus:ring-indigo-400 focus:border-transparent bg-white shadow-sm">
+            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-7 py-3 rounded-full transition shadow-md transform hover:scale-[1.02]">
+              Subscribe <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </form>
+          <p class="text-xs text-stone-400 mt-4">We respect your privacy. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER (social media icons, copyright, links) ======================= -->
+  <footer class="bg-stone-900 text-stone-300 py-10 px-6">
+    <div class="container mx-auto max-w-7xl">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <!-- Blog name + tagline -->
+        <div class="text-center md:text-left">
+          <div class="text-xl font-bold tracking-tight text-white">Mindful<span class="text-amber-400">Pages</span></div>
+          <p class="text-sm text-stone-400 mt-1">stories for the curious soul</p>
+        </div>
+        <!-- Quick links (extra) -->
+        <div class="flex gap-6 text-sm font-medium">
+          <a href="#" class="hover:text-amber-400 transition">About</a>
+          <a href="#" class="hover:text-amber-400 transition">Write for us</a>
+          <a href="#" class="hover:text-amber-400 transition">Privacy</a>
+          <a href="#" class="hover:text-amber-400 transition">Contact</a>
+        </div>
+        <!-- Social Media Icons (flex, tailwind spacing) -->
+        <div class="flex gap-5 text-xl">
+          <a href="#" class="hover:text-amber-400 transition transform hover:scale-110 inline-block" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-amber-400 transition transform hover:scale-110 inline-block" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-amber-400 transition transform hover:scale-110 inline-block" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          <a href="#" class="hover:text-amber-400 transition transform hover:scale-110 inline-block" aria-label="Substack"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <!-- Divider + Copyright -->
+      <div class="border-t border-stone-800 mt-8 pt-6 text-center text-sm text-stone-500 flex flex-col md:flex-row justify-between gap-3">
+        <span>© 2025 Mindful Pages — All rights reserved.</span>
+        <span class="flex gap-4 justify-center">
+          <i class="fab fa-creative-commons"></i> Slow living & mindful writing
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tiny script for demo form alert (non-intrusive, enhances UX, but all styling uses Tailwind) -->
+  <script>
+    (function() {
+      const form = document.getElementById('newsletterForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const emailInput = document.getElementById('newsEmail');
+          if (emailInput.value.trim() === '') {
+            alert('Please enter your email address to subscribe.');
+            return;
+          }
+          if (!emailInput.value.includes('@') || !emailInput.value.includes('.')) {
+            alert('Please provide a valid email address (e.g., hello@example.com)');
+            return;
+          }
+          alert(`📬 Thank you for subscribing! We’ll send mindful reads to ${emailInput.value.trim()}.`);
+          form.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

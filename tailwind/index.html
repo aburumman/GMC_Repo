@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mustapha Alayande · Software Engineer</title>
+  <!-- Tailwind CSS v3 + Font Awesome Icons + Google Fonts (Inter) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Custom config to extend Tailwind (optional but keeps consistency) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'Segoe UI', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* smooth scroll & subtle transition */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      transition: background 0.2s;
+    }
+    /* custom focus ring for accessibility */
+    input:focus, textarea:focus, button:focus {
+      outline: none;
+      ring: 2px solid #3b82f6;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-gray-100 font-sans antialiased">
+
+  <!-- ======================= HEADER SECTION ======================= -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="container mx-auto px-6 md:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <!-- Name / Logo -->
+      <div class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">
+        Mustapha Alayande
+      </div>
+      <!-- Navigation Menu (Home, Projects, Contact) -->
+      <nav class="flex gap-6 md:gap-8 text-base font-medium">
+        <a href="#home" class="text-gray-700 hover:text-indigo-600 transition duration-200">Home</a>
+        <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition duration-200">Projects</a>
+        <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition duration-200">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= HERO SECTION (Background Image + Headline) ======================= -->
+    <section id="home" class="relative h-[92vh] min-h-[550px] bg-cover bg-center flex items-center justify-center" 
+             style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');">
+      <!-- Overlay is handled by linear-gradient for better readability -->
+      <div class="text-center text-white px-6 max-w-3xl animate-fade-in">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">Crafting digital <br>experiences with soul</h1>
+        <p class="text-lg md:text-xl mt-4 text-gray-100 font-light">Hi, I'm Mustapha— front-end developer & creative problem solver. I build responsive, human-centered web experiences.</p>
+        <div class="mt-8 flex flex-wrap gap-4 justify-center">
+          <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 transition px-6 py-3 rounded-full font-semibold shadow-lg">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
+          <a href="#contact" class="border border-white hover:bg-white hover:text-gray-900 transition px-6 py-3 rounded-full font-semibold">Let's Connect</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= SKILLS SECTION (Flex / Grid layout) ======================= -->
+    <section class="py-20 px-6 md:px-8 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+          <span class="text-indigo-600 font-semibold tracking-wide uppercase text-sm">Core expertise</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">What I bring to the table</h2>
+          <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+        <!-- Skills grid: flexbox & responsive grid mix (Tailwind flex/grid) -->
+        <div class="flex flex-wrap justify-center gap-6 md:gap-8">
+          <!-- Skill 1 -->
+          <div class="bg-gray-50 shadow-md rounded-2xl p-6 w-40 md:w-48 text-center transition hover:-translate-y-1 duration-300">
+            <i class="fab fa-html5 text-4xl text-orange-500"></i>
+            <h3 class="font-bold text-lg mt-3">HTML5 & CSS3</h3>
+            <p class="text-sm text-gray-500">Semantic, responsive layouts</p>
+          </div>
+          <!-- Skill 2 -->
+          <div class="bg-gray-50 shadow-md rounded-2xl p-6 w-40 md:w-48 text-center transition hover:-translate-y-1 duration-300">
+            <i class="fab fa-js text-4xl text-yellow-500"></i>
+            <h3 class="font-bold text-lg mt-3">JavaScript</h3>
+            <p class="text-sm text-gray-500">ES6+, interactive UIs</p>
+          </div>
+          <!-- Skill 3 -->
+          <div class="bg-gray-50 shadow-md rounded-2xl p-6 w-40 md:w-48 text-center transition hover:-translate-y-1 duration-300">
+            <i class="fab fa-react text-4xl text-cyan-500"></i>
+            <h3 class="font-bold text-lg mt-3">React</h3>
+            <p class="text-sm text-gray-500">Component-driven apps</p>
+          </div>
+          <!-- Skill 4 -->
+          <div class="bg-gray-50 shadow-md rounded-2xl p-6 w-40 md:w-48 text-center transition hover:-translate-y-1 duration-300">
+            <i class="fab fa-tailwind text-4xl text-sky-500"></i>
+            <h3 class="font-bold text-lg mt-3">Tailwind CSS</h3>
+            <p class="text-sm text-gray-500">Utility-first styling</p>
+          </div>
+          <!-- Skill 5 (extra) shows grid flexibility -->
+          <div class="bg-gray-50 shadow-md rounded-2xl p-6 w-40 md:w-48 text-center transition hover:-translate-y-1 duration-300">
+            <i class="fas fa-database text-4xl text-emerald-600"></i>
+            <h3 class="font-bold text-lg mt-3">Node.js</h3>
+            <p class="text-sm text-gray-500">REST APIs & backend</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PROJECTS SECTION (Cards: image, title, description) ======================= -->
+    <section id="projects" class="py-20 px-6 md:px-8 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+          <span class="text-indigo-600 font-semibold tracking-wide uppercase text-sm">Recent work</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">Projects that speak for themselves</h2>
+          <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+        <!-- Grid layout: responsive (1 col mobile, 2 md, 3 lg) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <img class="h-56 w-full object-cover" src="https://picsum.photos/id/26/500/350" alt="EcoCommerce project dashboard">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800">EcoCommerce Hub</h3>
+              <p class="text-gray-600 mt-2">Sustainable marketplace with real-time inventory, cart & smooth checkout. Built with React & Tailwind.</p>
+              <div class="mt-4 flex gap-3">
+                <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">React</span>
+                <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">Tailwind</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <img class="h-56 w-full object-cover" src="https://picsum.photos/id/91/500/350" alt="Weather dashboard interface">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800">SkyCast AI</h3>
+              <p class="text-gray-600 mt-2">Weather forecasting app with location detection and beautiful animated visuals. Uses OpenWeather API.</p>
+              <div class="mt-4 flex gap-3">
+                <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">JavaScript</span>
+                <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">API</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <img class="h-56 w-full object-cover" src="https://picsum.photos/id/134/500/350" alt="Portfolio studio mockup">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800">Creative Studio</h3>
+              <p class="text-gray-600 mt-2">Modern agency website with smooth scroll, micro-interactions & fully responsive design system.</p>
+              <div class="mt-4 flex gap-3">
+                <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">HTML/CSS</span>
+                <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">GSAP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a href="#" class="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:text-indigo-800 transition">See more on GitHub <i class="fas fa-chevron-right text-sm"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CONTACT FORM SECTION (Name, Email, Message) ======================= -->
+    <section id="contact" class="py-20 px-6 md:px-8 bg-white">
+      <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-10">
+          <span class="text-indigo-600 font-semibold tracking-wide uppercase text-sm">Get in touch</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">Let's work together</h2>
+          <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+          <p class="text-gray-600 max-w-xl mx-auto mt-4">Have a project in mind? or just say hello — I’d love to hear from you.</p>
+        </div>
+        <!-- Contact Form (fields: name, email, message) -->
+        <form id="contactForm" class="bg-gray-50 p-6 md:p-8 rounded-2xl shadow-md space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-gray-700 font-medium mb-2">Full name <span class="text-red-500">*</span></label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition">
+            </div>
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-2">Email address <span class="text-red-500">*</span></label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition">
+            </div>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 font-medium mb-2">Message <span class="text-red-500">*</span></label>
+            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent resize-none"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-md transition transform hover:scale-[1.02] w-full md:w-auto">
+              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </div>
+          <p class="text-xs text-gray-400 text-center pt-2">I'll get back to you within 48 hours — no spam, promise.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER (Social Media Icons + Copyright) ======================= -->
+  <footer class="bg-gray-900 text-gray-300 py-10 px-6">
+    <div class="container mx-auto max-w-6xl">
+      <!-- Flexbox between social icons and copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex gap-6 text-2xl">
+          <a href="#" aria-label="GitHub" class="hover:text-white transition transform hover:scale-110 inline-block"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-white transition transform hover:scale-110 inline-block"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter" class="hover:text-white transition transform hover:scale-110 inline-block"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram" class="hover:text-white transition transform hover:scale-110 inline-block"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="text-sm text-gray-400 text-center">
+          <p>© 2025 Mustapha Alayande — Designed & built with Tailwind CSS <i class="fas fa-heart text-red-400 mx-1"></i></p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-xs text-center text-gray-500">
+        <span>All trademarks and icons belong to their respective owners.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- simple form demo (submission alert) to showcase interactive behavior -->
+  <script>
+    (function() {
+      const form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const nameInput = document.getElementById('name');
+          const emailInput = document.getElementById('email');
+          const messageInput = document.getElementById('message');
+          
+          if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+            alert('❌ Please fill in all fields (name, email, message).');
+            return;
+          }
+          // basic email check
+          const emailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+          if (!emailPattern.test(emailInput.value.trim())) {
+            alert('⚠️ Please enter a valid email address (e.g., hello@domain.com).');
+            return;
+          }
+          alert(`✨ Thank you, ${nameInput.value.trim()}! Your message has been sent. I'll reply soon. ✨`);
+          form.reset();
+        });
+      }
+      // subtle additional smoothness for nav links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === "#" || !targetId) return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
