@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ Dummy page · styled</title>
+  <!-- Google Font (Inter) for a modern look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(145deg, #f6f9fc 0%, #e9f0f7 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      margin: 0;
+    }
+
+    /* main card – soft glass-morphism / elevated style */
+    .dummy-card {
+      max-width: 880px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 3rem;
+      padding: 3rem 2.5rem;
+      box-shadow: 
+        0 30px 60px -20px rgba(0, 20, 40, 0.25),
+        0 8px 20px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    /* header section */
+    .dummy-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      gap: 1rem 0.5rem;
+    }
+
+    .dummy-header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1b2f4f, #2b4a6b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .dummy-header h1 small {
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: rgba(43, 74, 107, 0.12);
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      color: #1f3a57;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .badge {
+      background: #2b4a6b;
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      box-shadow: 0 4px 10px rgba(43, 74, 107, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      letter-spacing: 0.4px;
+    }
+
+    /* decorative line */
+    .divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(43, 74, 107, 0.15), rgba(43, 74, 107, 0.02));
+      margin: 1.5rem 0 2rem 0;
+      border-radius: 10px;
+    }
+
+    /* grid layout for dummy content */
+    .dummy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dummy-item {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 1.8rem 1.6rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .dummy-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px -12px rgba(0, 20, 40, 0.12);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .dummy-item h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1b2f4f;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .dummy-item h3 span {
+      font-size: 1.6rem;
+    }
+
+    .dummy-item p {
+      color: #2f4058;
+      line-height: 1.6;
+      font-size: 0.98rem;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+
+    .dummy-item .meta-tag {
+      display: inline-block;
+      margin-top: 0.9rem;
+      background: rgba(43, 74, 107, 0.08);
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1f3a57;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* action area */
+    .dummy-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: 60px;
+      border: none;
+      background: white;
+      color: #1b2f4f;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(43, 74, 107, 0.15);
+      cursor: default;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-primary {
+      background: #1b2f4f;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 16px rgba(27, 47, 79, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: #23405f;
+      transform: scale(1.02);
+      box-shadow: 0 10px 24px rgba(27, 47, 79, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(43, 74, 107, 0.04);
+      border-color: rgba(43, 74, 107, 0.3);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    /* dummy footer / extra */
+    .dummy-footer {
+      margin-top: 2.8rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(43, 74, 107, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #415d7a;
+    }
+
+    .dummy-footer .pill {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+    }
+
+    .dummy-footer .pill span {
+      font-weight: 300;
+      opacity: 0.6;
+    }
+
+    /* 100% responsive */
+    @media (max-width: 700px) {
+      .dummy-card {
+        padding: 2rem 1.5rem;
+        border-radius: 2rem;
+      }
+      .dummy-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .dummy-header h1 {
+        font-size: 2.2rem;
+      }
+      .dummy-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .badge {
+        align-self: flex-start;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .dummy-header h1 {
+        font-size: 1.8rem;
+        flex-wrap: wrap;
+      }
+      .dummy-header h1 small {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.7rem;
+      }
+      .btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+
+    /* Just a little extra flair — dummy “status” dot */
+    .status-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #3fc78b;
+      border-radius: 50%;
+      margin-right: 6px;
+      box-shadow: 0 0 0 2px rgba(63, 199, 139, 0.2);
+    }
+
+    /* utility */
+    .text-muted {
+      opacity: 0.6;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div class="dummy-card" role="main">
+    <!-- header -->
+    <div class="dummy-header">
+      <h1>
+        ✦ Dummy 
+        <small>v.2</small>
+      </h1>
+      <div class="badge">
+        <span class="status-dot"></span> healthy
+      </div>
+    </div>
+
+    <!-- grid content – dummy cards -->
+    <div class="dummy-grid">
+      <div class="dummy-item">
+        <h3><span>📘</span> Dashboard</h3>
+        <p>This is a beautifully styled dummy block. You can replace it with real content, charts, or any widget.</p>
+        <span class="meta-tag">⚡ 12 updates</span>
+      </div>
+      <div class="dummy-item">
+        <h3><span>🧩</span> Components</h3>
+        <p>Buttons, cards, badges – all styled with a modern glass feel. Hover to see the micro-interaction.</p>
+        <span class="meta-tag">🎨 8 variants</span>
+      </div>
+      <div class="dummy-item">
+        <h3><span>📊</span> Analytics</h3>
+        <p>Dummy data makes it easy to prototype. The grid adapts to any screen size, from mobile to desktop.</p>
+        <span class="meta-tag">📈 +24%</span>
+      </div>
+      <div class="dummy-item">
+        <h3><span>⚙️</span> Settings</h3>
+        <p>Everything is fully responsive and uses a soft, accessible color palette with good contrast.</p>
+        <span class="meta-tag">🔧 4 options</span>
+      </div>
+    </div>
+
+    <!-- action row -->
+    <div class="dummy-actions">
+      <div class="btn-group">
+        <span class="btn btn-primary">▶ Get started</span>
+        <span class="btn btn-outline">📋 Copy</span>
+        <span class="btn btn-outline">⋯ More</span>
+      </div>
+      <span style="font-size:0.9rem; color:#2f4a6a; opacity:0.7; display:flex; align-items:center; gap:0.3rem;">
+        <span style="font-size:1.2rem;">✨</span> dummy 2026
+      </span>
+    </div>
+
+    <!-- decorative divider -->
+    <div class="divider"></div>
+
+    <!-- footer -->
+    <div class="dummy-footer">
+      <div>
+        <span class="pill"><span>⏺</span> status: <strong>ready</strong></span>
+      </div>
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+        <span>📆 <span class="text-muted">July 1, 2026</span></span>
+        <span>👤 <span class="text-muted">dummy user</span></span>
+        <span style="opacity:0.4;">⏤</span>
+        <span style="opacity:0.6;">v0.1.2</span>
+      </div>
+    </div>
+
+    <!-- tiny extra: dummy signature (just for style) -->
+    <div style="margin-top: 1.2rem; font-size: 0.7rem; text-align: right; opacity: 0.25; letter-spacing: 0.3px; border-top: 1px solid rgba(0,0,0,0.02); padding-top: 0.8rem;">
+      ✦ pure css · glassmorphism dummy
+    </div>
+  </div>
+</body>
+</html>
